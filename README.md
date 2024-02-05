@@ -1,1 +1,13 @@
-This is react episode -1
+- Header
+- - Logo
+- - Nav Items
+- Body
+- - Search
+- - RestaurantContainer
+- - RestaurantCard
+-      - Img
+-      - Name of Res, Star Rating, Cuisine, etc, Delivery Time
+- Footer
+- - Copyright
+- - Links
+- - Address
