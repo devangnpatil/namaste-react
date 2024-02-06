@@ -1,13 +1,9 @@
+import { LOGO_URL } from "../utils/constants";
 const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img
-          className="logo"
-          src="https://assets.materialup.com/uploads/61d86780-be13-47fa-81a6-226aac22db27/preview.jpg"
-          alt=""
-          title=""
-        />
+        <img className="logo" src={LOGO_URL} alt="" title="" />
       </div>
       <div className="nav-items">
         <ul>
