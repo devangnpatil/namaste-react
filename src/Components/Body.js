@@ -5,11 +5,11 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [filterdRestaurants, setFilterdRestaurants] = useState([]);
   const handleClick = () => {
     const filteredList = listOfRestaurants.filter((res) => {
       return res.rating_text >= 4;
     });
-    console.log(filteredList);
     setListOfRestaurants(filteredList);
   };
 
@@ -22,9 +22,20 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch("data.json");
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
     const response = await data.json();
-    setListOfRestaurants(response);
+    console.log(
+      "DATA",
+      response.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+    );
+    setListOfRestaurants(
+      response.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+    );
+    setFilterdRestaurants(
+      response.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+    );
   };
   if (listOfRestaurants.length === 0) {
     return <Shimmer></Shimmer>;
@@ -46,9 +57,11 @@ const Body = () => {
               // filter the card and update the UI
 
               const filterRestuarants = listOfRestaurants.filter((restaurant) =>
-                restaurant.name.includes(searchText)
+                restaurant.info.name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase())
               );
-              setListOfRestaurants(filterRestuarants);
+              setFilterdRestaurants(filterRestuarants);
             }}
           >
             Search
@@ -64,10 +77,9 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {listOfRestaurants &&
-          listOfRestaurants.map((card) => (
-            <RestaurantCard resList={card} key={card.resId}></RestaurantCard>
-          ))}
+        {filterdRestaurants.map((card) => (
+          <RestaurantCard resList={card} key={card.info.id}></RestaurantCard>
+        ))}
       </div>
     </div>
   );
