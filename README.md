@@ -19,3 +19,10 @@
 - Named Export/Import
   export const Component
   import {Component} from 'path'
+
+#Routing in web apps
+
+1. Client side routing, /, /about, /contact
+2. Server side routing, /api/signin, /api/signup, /api/create,
+
+[699105](http://localhost:1234/restaturants/699105)
