@@ -22,6 +22,8 @@ const RestaurantMenu = () => {
     resInfo?.cards[2]?.card?.card?.info;
 
   const { itemCards } =
+    resInfo?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
+      .categories?.[0] ||
     resInfo?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
   return (
@@ -32,6 +34,7 @@ const RestaurantMenu = () => {
       </p>
       <h2>Menu</h2>
       <ul>
+        {itemCards.length === 0 && <h1>No Menu Found</h1>}
         {itemCards.map((card) => {
           return (
             <li id={card.card.info.id}>
