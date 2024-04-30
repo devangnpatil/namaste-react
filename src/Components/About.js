@@ -19,7 +19,7 @@ class About extends Component {
         <div>This is a Namaste React Web Series</div>
         {/* <User name="Devang1" location="Mumbai" contact="@devangnpatil"></User> */}
         <UserClass
-          name="Devang2 (class)"
+          name="Devang"
           location="Delhi"
           contact="@devangnpatil"
         ></UserClass>
