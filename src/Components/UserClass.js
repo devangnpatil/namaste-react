@@ -9,6 +9,7 @@ class UserClass extends React.Component {
         name: "Jone Doe",
         location: "Default",
         company: "Default",
+        avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
       },
     };
     console.log(this.props.name, "User constructor");
@@ -30,7 +31,7 @@ class UserClass extends React.Component {
 
   render() {
     const { count } = this.props;
-    const { name, location, company } = this.state.userInfo;
+    const { name, location, company, avatar_url } = this.state.userInfo;
     return (
       <div className="user-card">
         {console.log(this.props.name, "User render")}
@@ -42,6 +43,7 @@ class UserClass extends React.Component {
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
         <h3>Company: {company}</h3>
+        <img src={avatar_url} alt="url" />
         {/* <h4>Contact: {contact}</h4> */}
       </div>
     );

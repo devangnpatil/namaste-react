@@ -17,12 +17,12 @@ class About extends Component {
         {console.log("Parent Render")}
         <h1>About</h1>
         <div>This is a Namaste React Web Series</div>
-        {/* <User name="Devang1" location="Mumbai" contact="@devangnpatil"></User> */}
-        <UserClass
+        <User name="Devang1" location="Mumbai" contact="@devangnpatil"></User>
+        {/* <UserClass
           name="Devang"
           location="Delhi"
           contact="@devangnpatil"
-        ></UserClass>
+        ></UserClass> */}
       </>
     );
   }
