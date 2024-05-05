@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import resList from "../data.json";
-import RestaurantCard from "./RestaurantCard";
+import { RestaurantCard, withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { RESTAURANTS_LIST } from "../utils/constants";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filterdRestaurants, setFilterdRestaurants] = useState([]);
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
   const handleClick = () => {
     const filteredList = listOfRestaurants.filter((res) => {
       return res.rating_text >= 4;
@@ -82,6 +83,12 @@ const Body = () => {
       <div className="flex  flex-wrap">
         {filterdRestaurants.map((card) => (
           <Link to={"/restaurants/" + card.info.id} key={card.info.id}>
+            {/* {if restaturant is open then add flag open} */}
+            {card.info.isOpen ? (
+              <RestaurantCardPromoted resList={card}></RestaurantCardPromoted>
+            ) : (
+              <RestaurantCard resList={card}></RestaurantCard>
+            )}
             <RestaurantCard resList={card}></RestaurantCard>
           </Link>
         ))}

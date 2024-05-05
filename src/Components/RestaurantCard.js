@@ -1,4 +1,4 @@
-const RestaurantCard = ({ resList }) => {
+export const RestaurantCard = ({ resList }) => {
   const { name, cuisines, avgRatingString, cloudinaryImageId, sla } =
     resList.info;
   return (
@@ -15,4 +15,16 @@ const RestaurantCard = ({ resList }) => {
     </div>
   );
 };
-export default RestaurantCard;
+
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-2 p-2 rounded-lg">
+          Promoted
+        </label>
+        <RestaurantCard {...props}></RestaurantCard>
+      </div>
+    );
+  };
+};
