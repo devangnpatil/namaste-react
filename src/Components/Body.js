@@ -38,7 +38,7 @@ const Body = () => {
     );
   };
   if (listOfRestaurants.length === 0) {
-    return <Shimmer></Shimmer>;
+    return <Shimmer loading="cards"></Shimmer>;
   }
   return (
     <div className="body">
