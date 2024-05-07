@@ -8,6 +8,8 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
 
+  const [showIndex, setShowIndex] = useState(null);
+
   if (resInfo === null) return <Shimmer />;
 
   const { name, costForTwoMessage, cuisines, cloudinaryImageId } =
@@ -33,9 +35,12 @@ const RestaurantMenu = () => {
       </p>
       {categories.length === 0 && <h1>No Menu Found</h1>}
       {categories.map((category, index) => (
+        // This is controlled component
         <RestaurantCategory
-          key={index}
+          key={category.card.card.title}
           data={category.card.card}
+          showItems={index === showIndex && true}
+          setShowIndex={() => setShowIndex(index)}
         ></RestaurantCategory>
       ))}
     </div>
