@@ -2,11 +2,11 @@ const ShimmerCards = () => {
   const card = (
     <div
       role="status"
-      class="max-w-sm p-4 border border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700 m-4"
+      className="max-w-sm p-4 border border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700 m-4"
     >
-      <div class="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700">
+      <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700">
         <svg
-          class="w-10 h-10 text-gray-200 dark:text-gray-600"
+          className="w-10 h-10 text-gray-200 dark:text-gray-600"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -16,11 +16,11 @@ const ShimmerCards = () => {
           <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
         </svg>
       </div>
-      <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
-      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-      <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-      <span class="sr-only">Loading...</span>
+      <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+      <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+      <span className="sr-only">Loading...</span>
     </div>
   );
 

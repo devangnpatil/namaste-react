@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import { MENU_API } from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
@@ -17,23 +18,26 @@ const RestaurantMenu = () => {
       .categories?.[0] ||
     resInfo?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
+  const categories =
+    resInfo?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (card) =>
+        card.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  console.log(categories);
   return (
-    <div className="menu">
-      <h1>{name}</h1>
-      <p>
+    <div className="text-center">
+      <h1 className="font-bold m-5 text-2xl">{name}</h1>
+      <p className="font-bold">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
-      <h2>Menu</h2>
-      <ul>
-        {itemCards.length === 0 && <h1>No Menu Found</h1>}
-        {itemCards.map((card) => {
-          return (
-            <li id={card.card.info.id}>
-              {card.card.info.name} - Rs/- {card.card.info.price / 100}
-            </li>
-          );
-        })}
-      </ul>
+      {categories.length === 0 && <h1>No Menu Found</h1>}
+      {categories.map((category, index) => (
+        <RestaurantCategory
+          key={index}
+          data={category.card.card}
+        ></RestaurantCategory>
+      ))}
     </div>
   );
 };
