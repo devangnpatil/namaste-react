@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+
 export const RestaurantCard = ({ resList }) => {
   const { name, cuisines, avgRatingString, cloudinaryImageId, sla } =
     resList.info;
+  const { loggedInUser } = useContext(UserContext);
   return (
     <div className="m-4 p-4 w-[250px] rounded-lg hover:bg-gray-200">
       <img
@@ -12,6 +16,7 @@ export const RestaurantCard = ({ resList }) => {
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRatingString}</h4>
       <h4>{sla.slaString}</h4>
+      <h3>{loggedInUser}</h3>
     </div>
   );
 };

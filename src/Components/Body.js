@@ -27,10 +27,6 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(RESTAURANTS_LIST);
     const response = await data.json();
-    console.log(
-      "DATA",
-      response.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-    );
     setListOfRestaurants(
       response.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
     );

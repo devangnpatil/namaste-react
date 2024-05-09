@@ -12,7 +12,6 @@ class UserClass extends React.Component {
         avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
       },
     };
-    console.log(this.props.name, "User constructor");
   }
 
   componentDidMount() {
@@ -26,7 +25,6 @@ class UserClass extends React.Component {
       ...this.state,
       userInfo,
     });
-    console.log(userInfo);
   }
 
   render() {
