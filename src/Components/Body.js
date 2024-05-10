@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 // import resList from "../data.json";
 import { RestaurantCard, withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { RESTAURANTS_LIST } from "../utils/constants";
+import UserContext from "../utils/UserContext";
+
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -17,7 +19,7 @@ const Body = () => {
   };
 
   const changeHandler = (e) => {
-    // console.log(e.target.value);
+    setUserName(e.target.value);
   };
 
   useEffect(() => {
@@ -34,6 +36,7 @@ const Body = () => {
       response.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
     );
   };
+  const { loggedInUser, setUserName } = useContext(UserContext);
   if (listOfRestaurants.length === 0) {
     return <Shimmer loading="cards"></Shimmer>;
   }
@@ -65,15 +68,15 @@ const Body = () => {
             Search
           </button>
         </div>
+
         <div className="m-4 p-4">
-          <button
-            className="px-4 py-2 bg-green-200 m-4 rounded-lg"
-            onClick={() => {
-              handleClick();
-            }}
-          >
-            Top Rated Restaurants
-          </button>
+          UserName:
+          <input
+            type="text"
+            className="border border-black p-2 rounded-mds"
+            onChange={changeHandler}
+            value={loggedInUser}
+          />
         </div>
       </div>
       <div className="flex  flex-wrap">
