@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Body from "./Components/Body";
 import RestaurantMenu from "./Components/RestaurantMenu";
 import Shimmer from "./Components/Shimmer";
+import Cart from "./Components/Cart";
 
 // import Grocery from "./Components/Grocery";
 
@@ -50,12 +51,22 @@ const appRouter = createBrowserRouter([
         element: <RestaurantMenu />,
         errorElement: <Error />,
       },
+      {
+        path: "/cart/",
+        element: <Cart />,
+        errorElement: <Error />,
+      },
     ],
     errorElement: <Error />,
   },
   {
     path: "/restaurants/:resId",
     element: <RestaurantMenu />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/cart/",
+    element: <Cart />,
     errorElement: <Error />,
   },
 ]);

@@ -23,7 +23,7 @@ const Body = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchData(RESTAURANTS_LIST);
   }, []);
 
   const fetchData = async () => {
