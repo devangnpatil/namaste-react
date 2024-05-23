@@ -9,11 +9,7 @@ const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
   const onlineStatus = useOnlineStatus();
-  useEffect(() => {
-    console.log("useEffect called");
-  }, [btnNameReact]);
   return (
     <div className="flex justify-between  mb-2 bg-pink-300 shadow-lg sm:bg-yellow-200 lg:bg-red-200">
       <div className="logo-container">
