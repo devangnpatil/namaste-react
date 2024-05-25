@@ -6,7 +6,10 @@ export const RestaurantCard = ({ resList }) => {
     resList.info;
   const { loggedInUser } = useContext(UserContext);
   return (
-    <div className="m-4 p-4 w-[250px] rounded-lg hover:bg-gray-200">
+    <div
+      className="m-4 p-4 w-[250px] rounded-lg hover:bg-gray-200"
+      data-testid="restaurant-card"
+    >
       <img
         className="rounded-lg height-100 w-100"
         src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}

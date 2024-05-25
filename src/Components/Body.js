@@ -51,6 +51,7 @@ const Body = () => {
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
+            data-testid="search-input"
           />
           <button
             className="px-4 py-2 bg-pink-200 m-4 rounded-lg hover:bg-yellow-200 text-white"
